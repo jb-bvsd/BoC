@@ -1,0 +1,27 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>mock IC</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row" style="background-color:#f26126; height:50px;">
+            <div class="col-xs-12 text-center">[IC campusHeader]</div>
+        </div>
+        <div class="row" style="background-color:#eee; height:30px;">
+            <div class="col-xs-12 text-center">[IC toolbar]</div>
+        </div>
+        <div class="row text-center">
+            <div class="col-xs-2" style="background-color:#92c83e; height:2000px;"><br /><br />[IC sidebar]</div>
+            <div class="col-xs-10"> 
+                <iframe src="@Url.Action("List", "Incident")" height="2000px" width="100%" scrolling="no" style="border:0;"></iframe>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

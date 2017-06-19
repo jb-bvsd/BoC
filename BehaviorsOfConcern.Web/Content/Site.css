@@ -1,0 +1,39 @@
+﻿body {
+    padding-top: 52px;
+    padding-bottom: 20px;
+}
+
+DIV#listFilters2 {
+    float: left;
+    width: 14.5em;
+    margin-right: 0.5em;
+    padding: 0.25em;
+    background-color: aliceblue;
+    height: 684px;
+}
+
+DIV#contentWorkArea {
+    margin-left: 15em;
+    margin-right: 0em;
+    padding: 0;
+}
+
+div#listFilters {
+    margin-right: 0.5em;
+    padding: 0.25em;
+    background-color: aliceblue;
+    height: 684px;
+}
+
+.row.content {
+    height: 1500px
+}
+
+.sidenav {
+    background-color: aliceblue;
+    height: 100%;
+}
+
+.xnavbar-inverse {
+    background-color: lightblue;
+}

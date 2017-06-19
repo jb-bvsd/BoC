@@ -1,0 +1,520 @@
+{
+  "draw": [draw_value],
+  "recordsTotal": 57,
+  "recordsFiltered": 57,
+  "data": [
+	{
+		"student": "",
+		"id": 9304,
+		"incidentDate": "Oct 2, 2017",
+		"school": "Broomfield High School",
+		"category": "",
+		"source": "Website",
+		"status": "Submitted"
+	},
+	{
+		"student": "Amal Sullivan,<br/>Colt Knost",
+		"id": 6402,
+		"incidentDate": "Jan 30, 2017",
+		"school": "Fairview High School",
+		"category": "Mental Health",
+		"source": "Safe2Tell",
+		"status": "Received"
+	},
+	{
+		"student": "",
+		"id": 1694,
+		"incidentDate": "Sep 7, 2017",
+		"school": "Fairview High School",
+		"category": "",
+		"source": "Safe2Tell",
+		"status": "Submitted"
+	},
+	{
+		"student": "",
+		"id": 8523,
+		"incidentDate": "Jan 22, 2017",
+		"school": "Lafayette Elementary School",
+		"category": "",
+		"source": "Safe2Tell",
+		"status": "Submitted"
+	},
+	{
+		"student": "Austin Winters,<br/>Herbert Q Pufferkite,<br/>Penny Laine",
+		"id": 8030,
+		"incidentDate": "Mar 13, 2018",
+		"school": "Broomfield High School",
+		"category": "Academic",
+		"source": "Website",
+		"status": "Closed"
+	},
+	{
+		"student": "",
+		"id": 7602,
+		"incidentDate": "Oct 14, 2017",
+		"school": "Casey Middle School",
+		"category": "",
+		"source": "Paper Report",
+		"status": "In Progress"
+	},
+	{
+		"student": "Derek Copeland",
+		"id": 6121,
+		"incidentDate": "Jan 5, 2017",
+		"school": "Monarch High School",
+		"category": "Self-Harm Concern",
+		"source": "Website",
+		"status": "Closed"
+	},
+	{
+		"student": "",
+		"id": 6489,
+		"incidentDate": "Dec 2, 2016",
+		"school": "Boulder High School",
+		"category": "",
+		"source": "Threat Assessment",
+		"status": "Submitted"
+	},
+	{
+		"student": "Larissa Chang",
+		"id": 9200,
+		"incidentDate": "Aug 11, 2016",
+		"school": "Lafayette Elementary School",
+		"category": "Familiy Crisis",
+		"source": "Threat Assessment",
+		"status": "Closed"
+	},
+	{
+		"student": "",
+		"id": 8656,
+		"incidentDate": "Apr 3, 2018",
+		"school": "Monarch High School",
+		"category": "",
+		"source": "Website",
+		"status": "Submitted"
+	},
+	{
+		"student": "",
+		"id": 8049,
+		"incidentDate": "Sep 24, 2017",
+		"school": "Boulder High School",
+		"category": "",
+		"source": "Safe2Tell",
+		"status": "Submitted"
+	},
+	{
+		"student": "Helen Nielsen",
+		"id": 8569,
+		"incidentDate": "Feb 5, 2017",
+		"school": "Monarch High School",
+		"category": "Mental Health",
+		"source": "Website",
+		"status": "Closed"
+	},
+	{
+		"student": "Vielka Duran",
+		"id": 1495,
+		"incidentDate": "Mar 2, 2017",
+		"school": "Broomfield High School",
+		"category": "Self-Harm Concern",
+		"source": "Website",
+		"status": "Received"
+	},
+	{
+		"student": "",
+		"id": 3827,
+		"incidentDate": "Dec 11, 2017",
+		"school": "Centennial Middle School",
+		"category": "",
+		"source": "Safe2Tell",
+		"status": "Submitted"
+	},
+	{
+		"student": "Sade Ramirez",
+		"id": 9164,
+		"incidentDate": "Dec 27, 2017",
+		"school": "Boulder High School",
+		"category": "Threatening Behavior",
+		"source": "Paper Report",
+		"status": "Closed"
+	},
+	{
+		"student": "",
+		"id": 7801,
+		"incidentDate": "Jul 21, 2017",
+		"school": "Casey Middle School",
+		"category": "",
+		"source": "Safe2Tell",
+		"status": "Submitted"
+	},
+	{
+		"student": "Aiko Camacho",
+		"id": 5135,
+		"incidentDate": "Jul 27, 2017",
+		"school": "Monarch High School",
+		"category": "Self-Harm Concern",
+		"source": "Safe2Tell",
+		"status": "Received"
+	},
+	{
+		"student": "Hamilton David",
+		"id": 7456,
+		"incidentDate": "Aug 9, 2016",
+		"school": "Boulder High School",
+		"category": "Academic",
+		"source": "Threat Assessment",
+		"status": "Closed"
+	},
+	{
+		"student": "Dillon Nicholson",
+		"id": 1532,
+		"incidentDate": "Jan 30, 2018",
+		"school": "Monarch High School",
+		"category": "Familiy Crisis",
+		"source": "Paper Report",
+		"status": "Closed"
+	},
+	{
+		"student": "Noah Garner",
+		"id": 3435,
+		"incidentDate": "Jan 13, 2018",
+		"school": "Boulder High School",
+		"category": "Familiy Crisis",
+		"source": "Safe2Tell",
+		"status": "Closed"
+	},
+	{
+		"student": "",
+		"id": 3128,
+		"incidentDate": "Sep 12, 2017",
+		"school": "Monarch High School",
+		"category": "",
+		"source": "Safe2Tell",
+		"status": "Submitted"
+	},
+	{
+		"student": "Britanni Schwartz",
+		"id": 2639,
+		"incidentDate": "Jul 30, 2017",
+		"school": "Boulder High School",
+		"category": "Self-Harm Concern",
+		"source": "Threat Assessment",
+		"status": "Closed"
+	},
+	{
+		"student": "Kadeem Walton",
+		"id": 4423,
+		"incidentDate": "Oct 28, 2017",
+		"school": "Monarch High School",
+		"category": "Concerning Behavior",
+		"source": "Threat Assessment",
+		"status": "Received"
+	},
+	{
+		"student": "Ishmael Zimmerman",
+		"id": 9555,
+		"incidentDate": "Oct 11, 2016",
+		"school": "Boulder High School",
+		"category": "Academic",
+		"source": "Paper Report",
+		"status": "Closed"
+	},
+	{
+		"student": "Griffith Clements",
+		"id": 4527,
+		"incidentDate": "Dec 16, 2016",
+		"school": "Monarch High School",
+		"category": "General Conduct",
+		"source": "Website",
+		"status": "Received"
+	},
+	{
+		"student": "Reese Grant",
+		"id": 7763,
+		"incidentDate": "Apr 25, 2017",
+		"school": "Boulder High School",
+		"category": "Threatening Behavior",
+		"source": "Threat Assessment",
+		"status": "Received"
+	},
+	{
+		"student": "Jeremy Tanner",
+		"id": 7586,
+		"incidentDate": "Jun 26, 2017",
+		"school": "Centennial Middle School",
+		"category": "Self-Harm Concern",
+		"source": "Threat Assessment",
+		"status": "Closed"
+	},
+	{
+		"student": "Reed Dominguez",
+		"id": 4794,
+		"incidentDate": "Feb 25, 2018",
+		"school": "Monarch High School",
+		"category": "Familiy Crisis",
+		"source": "Threat Assessment",
+		"status": "Closed"
+	},
+	{
+		"student": "Vivien Conner",
+		"id": 3048,
+		"incidentDate": "May 22, 2017",
+		"school": "Boulder High School",
+		"category": "Academic",
+		"source": "Safe2Tell",
+		"status": "Received"
+	},
+	{
+		"student": "",
+		"id": 1774,
+		"incidentDate": "Nov 18, 2017",
+		"school": "Casey Middle School",
+		"category": "",
+		"source": "Website",
+		"status": "Submitted"
+	},
+	{
+		"student": "Aurora Todd",
+		"id": 7749,
+		"incidentDate": "Oct 18, 2016",
+		"school": "Centennial Middle School",
+		"category": "General Conduct",
+		"source": "Safe2Tell",
+		"status": "Closed"
+	},
+	{
+		"student": "Roth Bentley",
+		"id": 3130,
+		"incidentDate": "Dec 22, 2016",
+		"school": "Centennial Middle School",
+		"category": "Familiy Crisis",
+		"source": "Safe2Tell",
+		"status": "Closed"
+	},
+	{
+		"student": "Shafira Simon",
+		"id": 3937,
+		"incidentDate": "May 19, 2017",
+		"school": "Boulder High School",
+		"category": "Familiy Crisis",
+		"source": "Safe2Tell",
+		"status": "Submitted"
+	},
+	{
+		"student": "Linda Mcfarland",
+		"id": 8552,
+		"incidentDate": "Mar 21, 2017",
+		"school": "Boulder High School",
+		"category": "General Conduct",
+		"source": "Website",
+		"status": "Received"
+	},
+	{
+		"student": "Harrison Slater",
+		"id": 4085,
+		"incidentDate": "Jan 16, 2018",
+		"school": "Monarch High School",
+		"category": "Concerning Behavior",
+		"source": "Threat Assessment",
+		"status": "Closed"
+	},
+	{
+		"student": "Mason Bond",
+		"id": 3544,
+		"incidentDate": "Nov 11, 2016",
+		"school": "Monarch High School",
+		"category": "Familiy Crisis",
+		"source": "Threat Assessment",
+		"status": "Closed"
+	},
+	{
+		"student": "Silas Vance",
+		"id": 8914,
+		"incidentDate": "May 11, 2017",
+		"school": "Monarch High School",
+		"category": "Concerning Behavior",
+		"source": "Safe2Tell",
+		"status": "Submitted"
+	},
+	{
+		"student": "Inez Cash",
+		"id": 4981,
+		"incidentDate": "Nov 22, 2017",
+		"school": "Boulder High School",
+		"category": "Mental Health",
+		"source": "Website",
+		"status": "Submitted"
+	},
+	{
+		"student": "Britanni Harrington",
+		"id": 2334,
+		"incidentDate": "Jul 9, 2017",
+		"school": "Monarch High School",
+		"category": "Academic",
+		"source": "Paper Report",
+		"status": "Received"
+	},
+	{
+		"student": "Brenda Hoffman",
+		"id": 6078,
+		"incidentDate": "Mar 23, 2018",
+		"school": "Casey Middle School",
+		"category": "Physical Health",
+		"source": "Website",
+		"status": "Received"
+	},
+	{
+		"student": "Noelle Zimmerman",
+		"id": 7053,
+		"incidentDate": "Jan 8, 2017",
+		"school": "Casey Middle School",
+		"category": "Threatening Behavior",
+		"source": "Website",
+		"status": "Submitted"
+	},
+	{
+		"student": "Judah Glenn",
+		"id": 4741,
+		"incidentDate": "Jun 30, 2017",
+		"school": "Centennial Middle School",
+		"category": "Familiy Crisis",
+		"source": "Safe2Tell",
+		"status": "Received"
+	},
+	{
+		"student": "Chava Prince",
+		"id": 6003,
+		"incidentDate": "Feb 18, 2018",
+		"school": "Boulder High School",
+		"category": "Familiy Crisis",
+		"source": "Paper Report",
+		"status": "Closed"
+	},
+	{
+		"student": "Summer Rodriguez",
+		"id": 4596,
+		"incidentDate": "Nov 28, 2017",
+		"school": "Monarch High School",
+		"category": "Self-Harm Concern",
+		"source": "Safe2Tell",
+		"status": "Closed"
+	},
+	{
+		"student": "Harriet Knight",
+		"id": 7409,
+		"incidentDate": "Aug 20, 2017",
+		"school": "Monarch High School",
+		"category": "Concerning Behavior",
+		"source": "Website",
+		"status": "Closed"
+	},
+	{
+		"student": "Melodie Harrison",
+		"id": 6501,
+		"incidentDate": "Dec 12, 2017",
+		"school": "Boulder High School",
+		"category": "Threatening Behavior",
+		"source": "Paper Report",
+		"status": "Closed"
+	},
+	{
+		"student": "Laurel Gillespie",
+		"id": 4578,
+		"incidentDate": "Sep 25, 2017",
+		"school": "Boulder High School",
+		"category": "Physical Health",
+		"source": "Threat Assessment",
+		"status": "Submitted"
+	},
+	{
+		"student": "Coby Madden",
+		"id": 3207,
+		"incidentDate": "Jan 1, 2018",
+		"school": "Monarch High School",
+		"category": "Familiy Crisis",
+		"source": "Safe2Tell",
+		"status": "Closed"
+	},
+	{
+		"student": "Paul Harvey",
+		"id": 5685,
+		"incidentDate": "Jun 6, 2017",
+		"school": "Monarch High School",
+		"category": "Mental Health",
+		"source": "Paper Report",
+		"status": "Closed"
+	},
+	{
+		"student": "Griffin Knowles",
+		"id": 9861,
+		"incidentDate": "Jul 5, 2016",
+		"school": "Boulder High School",
+		"category": "Academic",
+		"source": "Paper Report",
+		"status": "Closed"
+	},
+	{
+		"student": "Elaine Bradley",
+		"id": 5448,
+		"incidentDate": "Jan 25, 2017",
+		"school": "Boulder High School",
+		"category": "Self-Harm Concern",
+		"source": "Safe2Tell",
+		"status": "Closed"
+	},
+	{
+		"student": "Ross Stanton",
+		"id": 4928,
+		"incidentDate": "Apr 10, 2018",
+		"school": "Lafayette Elementary School",
+		"category": "Familiy Crisis",
+		"source": "Threat Assessment",
+		"status": "Closed"
+	},
+	{
+		"student": "Hyatt Pierce",
+		"id": 7463,
+		"incidentDate": "Nov 19, 2016",
+		"school": "Broomfield High School",
+		"category": "Concerning Behavior",
+		"source": "Paper Report",
+		"status": "Submitted"
+	},
+	{
+		"student": "Yolanda Fuller",
+		"id": 9334,
+		"incidentDate": "Oct 28, 2017",
+		"school": "Lafayette Elementary School",
+		"category": "Threatening Behavior",
+		"source": "Safe2Tell",
+		"status": "Closed"
+	},
+	{
+		"student": "Priscilla Small",
+		"id": 3805,
+		"incidentDate": "Jan 22, 2018",
+		"school": "Broomfield High School",
+		"category": "General Conduct",
+		"source": "Safe2Tell",
+		"status": "Submitted"
+	},
+	{
+		"student": "Serina Lewis",
+		"id": 1928,
+		"incidentDate": "May 7, 2018",
+		"school": "Fairview High School",
+		"category": "Physical Health",
+		"source": "Paper Report",
+		"status": "Submitted"
+	},
+	{
+		"student": "Kuame Holloway",
+		"id": 4756,
+		"incidentDate": "Aug 12, 2016",
+		"school": "Casey Middle School",
+		"category": "Threatening Behavior",
+		"source": "Paper Report",
+		"status": "Closed"
+	}
+  ]
+}

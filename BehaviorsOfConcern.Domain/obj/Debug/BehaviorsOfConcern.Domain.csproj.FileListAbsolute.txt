@@ -1,0 +1,5 @@
+C:\JBWork\BVSD Repo\BehaviorsOfConcern\BehaviorsOfConcern.Domain\bin\Debug\BehaviorsOfConcern.Domain.dll
+C:\JBWork\BVSD Repo\BehaviorsOfConcern\BehaviorsOfConcern.Domain\bin\Debug\BehaviorsOfConcern.Domain.pdb
+C:\JBWork\BVSD Repo\BehaviorsOfConcern\BehaviorsOfConcern.Domain\obj\Debug\BehaviorsOfConcern.Domain.csprojResolveAssemblyReference.cache
+C:\JBWork\BVSD Repo\BehaviorsOfConcern\BehaviorsOfConcern.Domain\obj\Debug\BehaviorsOfConcern.Domain.dll
+C:\JBWork\BVSD Repo\BehaviorsOfConcern\BehaviorsOfConcern.Domain\obj\Debug\BehaviorsOfConcern.Domain.pdb

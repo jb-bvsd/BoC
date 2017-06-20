@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BehaviorsOfConcern.Domain.Entities {
     public class Incident {
-        public int IncidentID { get; set; }
+        public int ID { get; set; }
         public DateTime OccurredOn { get; set; }
         public DateTime SubmissionDate { get; set; }
         public Person Complainant { get; set; }  //free-form name, correct?  If so, do we want to capture contact info (full name, phone, e-mail)?

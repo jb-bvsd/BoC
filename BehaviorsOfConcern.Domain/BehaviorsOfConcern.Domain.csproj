@@ -46,6 +46,12 @@
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Entities\School.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepoServices\Abstract\IBoCAuthorizationService.cs" />
+    <Compile Include="RepoServices\Abstract\IIncidentRepository.cs" />
+    <Compile Include="RepoServices\Abstract\ISchoolRepository.cs" />
+    <Compile Include="RepoServices\Abstract\RepositoryBase.cs" />
+    <Compile Include="RepoServices\BoCAuthorizationService.cs" />
+    <Compile Include="RepoServices\SchoolRepository.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,520 @@
+{
+  "draw": [draw_value],
+  "recordsTotal": 57,
+  "recordsFiltered": 57,
+  "data": [
+	{
+		"student": "Tamara Sherman",
+		"id": 9304,
+		"incidentDate": "Oct 2, 2017",
+		"school": "luctus",
+		"category": "Family Emergency",
+		"source": "Source D",
+		"status": "Denied"
+	},
+	{
+		"student": "Amal Sullivan,<br/>Colt Knost",
+		"id": 6402,
+		"incidentDate": "Jan 30, 2017",
+		"school": "aliquet.",
+		"category": "Mental Health",
+		"source": "Source B",
+		"status": "Denied"
+	},
+	{
+		"student": "Alfreda Snider",
+		"id": 1694,
+		"incidentDate": "Sep 7, 2017",
+		"school": "dolor",
+		"category": "Academic",
+		"source": "Source B",
+		"status": "Pending"
+	},
+	{
+		"student": "Teegan Mendoza",
+		"id": 8523,
+		"incidentDate": "Jan 22, 2017",
+		"school": "urna.",
+		"category": "Threatening Behavior",
+		"source": "Source B",
+		"status": "Denied"
+	},
+	{
+		"student": "Austin Winters,<br/>Herbert Q Pufferkite,<br/>Penny Laine",
+		"id": 8030,
+		"incidentDate": "Mar 13, 2018",
+		"school": "nonummy",
+		"category": "Academic",
+		"source": "Source D",
+		"status": "Approved"
+	},
+	{
+		"student": "Adele Love",
+		"id": 7602,
+		"incidentDate": "Oct 14, 2017",
+		"school": "sed",
+		"category": "Physical Health",
+		"source": "Source C",
+		"status": "Pending"
+	},
+	{
+		"student": "Derek Copeland",
+		"id": 6121,
+		"incidentDate": "Jan 5, 2017",
+		"school": "nascetur",
+		"category": "Self-Harm Concern",
+		"source": "Source D",
+		"status": "Approved"
+	},
+	{
+		"student": "Cruz Hicks",
+		"id": 6489,
+		"incidentDate": "Dec 2, 2016",
+		"school": "feugiat",
+		"category": "Threatening Behavior",
+		"source": "Source A",
+		"status": "Pending"
+	},
+	{
+		"student": "Larissa Chang",
+		"id": 9200,
+		"incidentDate": "Aug 11, 2016",
+		"school": "non",
+		"category": "Family Emergency",
+		"source": "Source A",
+		"status": "Approved"
+	},
+	{
+		"student": "Rhoda Wong",
+		"id": 8656,
+		"incidentDate": "Apr 3, 2018",
+		"school": "vehicula",
+		"category": "Mental Health",
+		"source": "Source D",
+		"status": "Pending"
+	},
+	{
+		"student": "Erich Watts",
+		"id": 8049,
+		"incidentDate": "Sep 24, 2017",
+		"school": "nibh",
+		"category": "General Conduct",
+		"source": "Source B",
+		"status": "Pending"
+	},
+	{
+		"student": "Helen Nielsen",
+		"id": 8569,
+		"incidentDate": "Feb 5, 2017",
+		"school": "molestie.",
+		"category": "Mental Health",
+		"source": "Source D",
+		"status": "Approved"
+	},
+	{
+		"student": "Vielka Duran",
+		"id": 1495,
+		"incidentDate": "Mar 2, 2017",
+		"school": "arcu.",
+		"category": "Self-Harm Concern",
+		"source": "Source D",
+		"status": "Denied"
+	},
+	{
+		"student": "Lael Vaughn",
+		"id": 3827,
+		"incidentDate": "Dec 11, 2017",
+		"school": "parturient",
+		"category": "Family Emergency",
+		"source": "Source B",
+		"status": "Pending"
+	},
+	{
+		"student": "Sade Ramirez",
+		"id": 9164,
+		"incidentDate": "Dec 27, 2017",
+		"school": "vitae,",
+		"category": "Threatening Behavior",
+		"source": "Source C",
+		"status": "Approved"
+	},
+	{
+		"student": "Piper Molina",
+		"id": 7801,
+		"incidentDate": "Jul 21, 2017",
+		"school": "ultricies",
+		"category": "Self-Harm Concern",
+		"source": "Source B",
+		"status": "Pending"
+	},
+	{
+		"student": "Aiko Camacho",
+		"id": 5135,
+		"incidentDate": "Jul 27, 2017",
+		"school": "semper",
+		"category": "Self-Harm Concern",
+		"source": "Source B",
+		"status": "Denied"
+	},
+	{
+		"student": "Hamilton David",
+		"id": 7456,
+		"incidentDate": "Aug 9, 2016",
+		"school": "volutpat.",
+		"category": "Academic",
+		"source": "Source A",
+		"status": "Approved"
+	},
+	{
+		"student": "Dillon Nicholson",
+		"id": 1532,
+		"incidentDate": "Jan 30, 2018",
+		"school": "egestas.",
+		"category": "Family Emergency",
+		"source": "Source C",
+		"status": "Approved"
+	},
+	{
+		"student": "Noah Garner",
+		"id": 3435,
+		"incidentDate": "Jan 13, 2018",
+		"school": "In",
+		"category": "Family Emergency",
+		"source": "Source B",
+		"status": "Approved"
+	},
+	{
+		"student": "Danielle Obrien",
+		"id": 3128,
+		"incidentDate": "Sep 12, 2017",
+		"school": "ac,",
+		"category": "General Conduct",
+		"source": "Source B",
+		"status": "Pending"
+	},
+	{
+		"student": "Britanni Schwartz",
+		"id": 2639,
+		"incidentDate": "Jul 30, 2017",
+		"school": "tincidunt",
+		"category": "Self-Harm Concern",
+		"source": "Source A",
+		"status": "Approved"
+	},
+	{
+		"student": "Kadeem Walton",
+		"id": 4423,
+		"incidentDate": "Oct 28, 2017",
+		"school": "tempus,",
+		"category": "Concerning Behavior",
+		"source": "Source A",
+		"status": "Denied"
+	},
+	{
+		"student": "Ishmael Zimmerman",
+		"id": 9555,
+		"incidentDate": "Oct 11, 2016",
+		"school": "mattis.",
+		"category": "Academic",
+		"source": "Source C",
+		"status": "Approved"
+	},
+	{
+		"student": "Griffith Clements",
+		"id": 4527,
+		"incidentDate": "Dec 16, 2016",
+		"school": "luctus",
+		"category": "General Conduct",
+		"source": "Source D",
+		"status": "Denied"
+	},
+	{
+		"student": "Reese Grant",
+		"id": 7763,
+		"incidentDate": "Apr 25, 2017",
+		"school": "Nunc",
+		"category": "Threatening Behavior",
+		"source": "Source A",
+		"status": "Denied"
+	},
+	{
+		"student": "Jeremy Tanner",
+		"id": 7586,
+		"incidentDate": "Jun 26, 2017",
+		"school": "magna.",
+		"category": "Self-Harm Concern",
+		"source": "Source A",
+		"status": "Approved"
+	},
+	{
+		"student": "Reed Dominguez",
+		"id": 4794,
+		"incidentDate": "Feb 25, 2018",
+		"school": "ante",
+		"category": "Family Emergency",
+		"source": "Source A",
+		"status": "Approved"
+	},
+	{
+		"student": "Vivien Conner",
+		"id": 3048,
+		"incidentDate": "May 22, 2017",
+		"school": "mollis.",
+		"category": "Academic",
+		"source": "Source B",
+		"status": "Denied"
+	},
+	{
+		"student": "William Humphrey",
+		"id": 1774,
+		"incidentDate": "Nov 18, 2017",
+		"school": "euismod",
+		"category": "Mental Health",
+		"source": "Source D",
+		"status": "Pending"
+	},
+	{
+		"student": "Aurora Todd",
+		"id": 7749,
+		"incidentDate": "Oct 18, 2016",
+		"school": "non",
+		"category": "General Conduct",
+		"source": "Source B",
+		"status": "Approved"
+	},
+	{
+		"student": "Roth Bentley",
+		"id": 3130,
+		"incidentDate": "Dec 22, 2016",
+		"school": "et",
+		"category": "Family Emergency",
+		"source": "Source B",
+		"status": "Approved"
+	},
+	{
+		"student": "Shafira Simon",
+		"id": 3937,
+		"incidentDate": "May 19, 2017",
+		"school": "ligula.",
+		"category": "Family Emergency",
+		"source": "Source B",
+		"status": "Pending"
+	},
+	{
+		"student": "Linda Mcfarland",
+		"id": 8552,
+		"incidentDate": "Mar 21, 2017",
+		"school": "placerat.",
+		"category": "General Conduct",
+		"source": "Source D",
+		"status": "Denied"
+	},
+	{
+		"student": "Harrison Slater",
+		"id": 4085,
+		"incidentDate": "Jan 16, 2018",
+		"school": "vitae",
+		"category": "Concerning Behavior",
+		"source": "Source A",
+		"status": "Approved"
+	},
+	{
+		"student": "Mason Bond",
+		"id": 3544,
+		"incidentDate": "Nov 11, 2016",
+		"school": "ac",
+		"category": "Family Emergency",
+		"source": "Source A",
+		"status": "Approved"
+	},
+	{
+		"student": "Silas Vance",
+		"id": 8914,
+		"incidentDate": "May 11, 2017",
+		"school": "Aliquam",
+		"category": "Concerning Behavior",
+		"source": "Source B",
+		"status": "Pending"
+	},
+	{
+		"student": "Inez Cash",
+		"id": 4981,
+		"incidentDate": "Nov 22, 2017",
+		"school": "semper",
+		"category": "Mental Health",
+		"source": "Source D",
+		"status": "Pending"
+	},
+	{
+		"student": "Britanni Harrington",
+		"id": 2334,
+		"incidentDate": "Jul 9, 2017",
+		"school": "feugiat",
+		"category": "Academic",
+		"source": "Source C",
+		"status": "Denied"
+	},
+	{
+		"student": "Brenda Hoffman",
+		"id": 6078,
+		"incidentDate": "Mar 23, 2018",
+		"school": "parturient",
+		"category": "Physical Health",
+		"source": "Source D",
+		"status": "Denied"
+	},
+	{
+		"student": "Noelle Zimmerman",
+		"id": 7053,
+		"incidentDate": "Jan 8, 2017",
+		"school": "non",
+		"category": "Threatening Behavior",
+		"source": "Source D",
+		"status": "Pending"
+	},
+	{
+		"student": "Judah Glenn",
+		"id": 4741,
+		"incidentDate": "Jun 30, 2017",
+		"school": "non",
+		"category": "Family Emergency",
+		"source": "Source B",
+		"status": "Denied"
+	},
+	{
+		"student": "Chava Prince",
+		"id": 6003,
+		"incidentDate": "Feb 18, 2018",
+		"school": "dignissim",
+		"category": "Family Emergency",
+		"source": "Source C",
+		"status": "Approved"
+	},
+	{
+		"student": "Summer Rodriguez",
+		"id": 4596,
+		"incidentDate": "Nov 28, 2017",
+		"school": "vel,",
+		"category": "Self-Harm Concern",
+		"source": "Source B",
+		"status": "Approved"
+	},
+	{
+		"student": "Harriet Knight",
+		"id": 7409,
+		"incidentDate": "Aug 20, 2017",
+		"school": "mauris.",
+		"category": "Concerning Behavior",
+		"source": "Source D",
+		"status": "Approved"
+	},
+	{
+		"student": "Melodie Harrison",
+		"id": 6501,
+		"incidentDate": "Dec 12, 2017",
+		"school": "Nunc",
+		"category": "Threatening Behavior",
+		"source": "Source C",
+		"status": "Approved"
+	},
+	{
+		"student": "Laurel Gillespie",
+		"id": 4578,
+		"incidentDate": "Sep 25, 2017",
+		"school": "orci",
+		"category": "Physical Health",
+		"source": "Source A",
+		"status": "Pending"
+	},
+	{
+		"student": "Coby Madden",
+		"id": 3207,
+		"incidentDate": "Jan 1, 2018",
+		"school": "sagittis.",
+		"category": "Family Emergency",
+		"source": "Source B",
+		"status": "Approved"
+	},
+	{
+		"student": "Paul Harvey",
+		"id": 5685,
+		"incidentDate": "Jun 6, 2017",
+		"school": "dolor",
+		"category": "Mental Health",
+		"source": "Source C",
+		"status": "Approved"
+	},
+	{
+		"student": "Griffin Knowles",
+		"id": 9861,
+		"incidentDate": "Jul 5, 2016",
+		"school": "lectus",
+		"category": "Academic",
+		"source": "Source C",
+		"status": "Approved"
+	},
+	{
+		"student": "Elaine Bradley",
+		"id": 5448,
+		"incidentDate": "Jan 25, 2017",
+		"school": "lacinia.",
+		"category": "Self-Harm Concern",
+		"source": "Source B",
+		"status": "Approved"
+	},
+	{
+		"student": "Ross Stanton",
+		"id": 4928,
+		"incidentDate": "Apr 10, 2018",
+		"school": "sed",
+		"category": "Family Emergency",
+		"source": "Source A",
+		"status": "Approved"
+	},
+	{
+		"student": "Hyatt Pierce",
+		"id": 7463,
+		"incidentDate": "Nov 19, 2016",
+		"school": "Nam",
+		"category": "Concerning Behavior",
+		"source": "Source C",
+		"status": "Pending"
+	},
+	{
+		"student": "Yolanda Fuller",
+		"id": 9334,
+		"incidentDate": "Oct 28, 2017",
+		"school": "vel,",
+		"category": "Threatening Behavior",
+		"source": "Source B",
+		"status": "Approved"
+	},
+	{
+		"student": "Priscilla Small",
+		"id": 3805,
+		"incidentDate": "Jan 22, 2018",
+		"school": "ut",
+		"category": "General Conduct",
+		"source": "Source B",
+		"status": "Pending"
+	},
+	{
+		"student": "Serina Lewis",
+		"id": 1928,
+		"incidentDate": "May 7, 2018",
+		"school": "vitae",
+		"category": "Physical Health",
+		"source": "Source C",
+		"status": "Pending"
+	},
+	{
+		"student": "Kuame Holloway",
+		"id": 4756,
+		"incidentDate": "Aug 12, 2016",
+		"school": "ac,",
+		"category": "Threatening Behavior",
+		"source": "Source C",
+		"status": "Approved"
+	}
+  ]
+}

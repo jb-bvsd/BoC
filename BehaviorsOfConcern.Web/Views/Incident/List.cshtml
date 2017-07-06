@@ -21,17 +21,70 @@
         </table>
 
         <form class="form-inline">
-            <div class="form-group"><button type="submit" class="btn btn-primary">Open Incident</button></div>
-            <div class="form-group"><button type="submit" class="btn btn-primary">New Incident</button></div>
+            <div class="form-group"><button type="submit" class="btn btn-primary">Open incident</button></div>
+            <div class="form-group"><button id="delMe_newIncident" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Start a new incident</button></div>
         </form>
+
+        <p id="output" />
     </div>
 
     <div id="x_listFilters" class="col-sm-2 sidenav">@Html.Partial("IncidentFilters")</div>
 </div>
 
 
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel">Start a New Incident
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="newIncident-reportingSchool" class="form-control-label">Reporting School</label>
+                        <input type="text" class="form-control" id="newIncident-reportingSchool">
+                    </div>
+                    <div class="form-group">
+                        <label for="newIncident-incidentDate" class="form-control-label">Date & Time of Incident</label>
+                        <div class='input-group date' id='datetimepicker1'>
+                            <input type='text' class="form-control" id="newIncident-incidentDate" value="Mar 31, 2017  9:47am" />
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="newIncident-description" class="form-control-label">Description</label>
+                        <textarea class="form-control" id="newIncident-description" rows="5"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Create incident &amp; continue <span class="glyphicon glyphicon-share-alt"></span></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
 @section scripts{
     <script>
+        $.ajaxSetup({
+            headers: {
+                "Authorization": "Basic " + sessionStorage.authToken
+            }
+        });
+
         //ht tps://datatables.net/examples/ajax/orthogonal-data.html
         $(document).ready(function () {
             $('#incidentList').DataTable({
@@ -42,7 +95,7 @@
                 "title": "JB List",
 
                 "ajax": {
-                    "url": "sampleData",
+                    "url": "http://localhost:56743/api/incidents/search",
                     "type": "POST"
                 },
 
@@ -56,8 +109,18 @@
                     { data: "status" },
                     { data: "incidentDate" }
                 ]
-                
+
             });
         });
-    </script>
+
+
+        $(document).ready(function () {
+            $("#newIncident").click(function () {
+                $.post("http://localhost:56743/api/incidents?SpecificOther=xyz", { "SpecificLocation": "JBs loc", "ReportingSchool.ID": "9821", "SpecificOther": "JB other" })
+                  .done(function (data) {
+                      alert("Data Loaded: " + data);
+                  });
+            });
+        });
+</script>
 }

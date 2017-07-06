@@ -23,6 +23,7 @@ namespace BehaviorsOfConcern.Web.Controllers {
         }
 
         public ActionResult MockIC() {
+            HttpUtility.ParseQueryString("");
             /*
                 <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.504/styles/kendo.common-bootstrap.min.css" />
                 <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.504/styles/kendo.bootstrap.min.css" />

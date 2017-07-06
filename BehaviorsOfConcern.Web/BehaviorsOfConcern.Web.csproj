@@ -146,6 +146,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\IncidentListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -203,16 +204,23 @@
     <Content Include="Views\Incident\IncidentFilters.cshtml" />
     <Content Include="Views\Incident\Edit.cshtml" />
     <Content Include="Views\Incident\Edit_revB.cshtml" />
+    <Content Include="Views\Incident\Authenticate.cshtml" />
+    <Content Include="Views\Incident\Edit_revC.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BehaviorsOfConcern.Domain\BehaviorsOfConcern.Domain.csproj">
+      <Project>{758AFC2E-D0AD-4BD5-AEAE-14365CFCF9B8}</Project>
+      <Name>BehaviorsOfConcern.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

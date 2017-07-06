@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Authenticate";
+}
+
+<h2 id="status">Authenticating ... </h2>
+<p id="output" />
+
+@section scripts{
+<script>
+    var uri = '@ViewBag.AuthURI';
+
+    $(document).ready(function () {
+        $('#output').text(uri + '/@ViewBag.ICToken')
+
+        sessionStorage.authToken = null;
+
+        $.getJSON(uri + '/@ViewBag.ICToken')
+         .done(function (data) {
+             //$('#output').text(data["authToken"]);
+
+             if (typeof (Storage) !== "undefined") {
+                 //$('#status').text("Access allowed");
+                 sessionStorage.authToken = data["authToken"];
+                 window.location.assign("@Url.Action("List", "Incident")");
+             } else {
+                 $('#status').text("Sorry, your browser does not support web storage...");
+             }
+         })
+         .fail(function (jqXHR, textStatus, err) {
+             //$('#output').text('Error: ' + err);
+             $('#status').text("Access denied");
+         });
+    });
+
+</script>
+}

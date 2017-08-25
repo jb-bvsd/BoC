@@ -10,6 +10,8 @@ using System.Web;
 using System.Web.Http;
 
 namespace BehaviorsOfConcern.Api.Infrastructure {
+    //TODO: cite Microsoft ref. & author here
+
     public class AddChallengeOnUnauthorizedResult : IHttpActionResult {
         public AddChallengeOnUnauthorizedResult(AuthenticationHeaderValue challenge, IHttpActionResult innerResult) {
             Challenge = challenge;

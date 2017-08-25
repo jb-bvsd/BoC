@@ -6,9 +6,14 @@ using System.Security.Principal;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
-using ICCipher.Service;
+using BehaviorsOfConcern.Domain.DomainServices;
+using BehaviorsOfConcern.Domain.DomainServices.Abstract;
+using BehaviorsOfConcern.Domain.Entities;
+using BvsdSecurity.Service;
 
 namespace BehaviorsOfConcern.Api.Infrastructure {
+    //TODO: cite Microsoft ref. & author here
+
     public class IdentityBasicAuthenticationAttribute : BasicAuthenticationAttribute {
         /*
         protected override async Task<IPrincipal> AuthenticateAsync(string userName, string password, CancellationToken cancellationToken) {
@@ -58,39 +63,49 @@ namespace BehaviorsOfConcern.Api.Infrastructure {
             return principal;
         }
         */
-        static readonly ICipher _icCipherService;
+
+        static readonly string _simpleApiKey;
+        static readonly IBoCAuthorizationService _bocAuthorizationService;
+
 
         static IdentityBasicAuthenticationAttribute() {
-            //TODO:  _icCipherService should be instantiated via IoC Container!  Property injection will not work here, since C# Attribute subtypes are only allowed to receive simple types (int, double, string, etc.)
-            _icCipherService = new BlowFish(System.Text.Encoding.ASCII.GetBytes(System.Web.Configuration.WebConfigurationManager.AppSettings["cipherSalt_IC"]));
+            //TODO:  _bocAuthorizationService should be instantiated via IoC Container!  Property injection will not work here since C# Attribute (sub)types are only allowed to receive simple types (int, double, string, etc.)
+            _bocAuthorizationService = new BoCAuthorizationService(null, null,
+                new BlowFish(System.Text.Encoding.ASCII.GetBytes(System.Web.Configuration.WebConfigurationManager.AppSettings["cipherSalt_IC"])));
+
+            //TODO:  _simpleApiKey should be injected via IoC Container (requires jumping through a number of hoops (due to this being a .net 'Attribute' subclass) )
+            _simpleApiKey = System.Web.Configuration.WebConfigurationManager.AppSettings["simpleApiKey"];
         }
+
 
         protected override async Task<IPrincipal> AuthenticateAsync(string authorizationParameter, CancellationToken cancellationToken) {
             cancellationToken.ThrowIfCancellationRequested();
 
             ClaimsPrincipal principal;
+            List<Claim> claims = new List<Claim>();
             try {
-                var paramsCollection = HttpUtility.ParseQueryString(_icCipherService.Decrypt_ECB(HttpUtility.UrlDecode(authorizationParameter)));
-                int personID = int.Parse(paramsCollection["personID"]);
-                int schoolID = int.Parse(paramsCollection["schoolID"]);
+                if (!string.IsNullOrWhiteSpace(_simpleApiKey) && (_simpleApiKey == HttpUtility.UrlDecode(authorizationParameter))) {
+                    claims.Add(new Claim(ClaimTypes.Role, BvsdRoles.BvsdEmployee));
+                } else {
+                    BVSDAdmin sessionUser = _bocAuthorizationService.ExtractUser(authorizationParameter);
 
-                List<Claim> claims = new List<Claim>();
-                claims.Add(new Claim(ClaimTypes.NameIdentifier, personID.ToString()));
-                claims.Add(new Claim(ClaimTypes.UserData, schoolID.ToString()));
-                claims.Add(new Claim(ClaimTypes.Role, (schoolID == -1) ? "DistrictAdmin" : (schoolID > 0) ? "SchoolAdmin" : "NotAnAdmin"));
-
+                    claims.Add(new Claim(ClaimTypes.Name, sessionUser.Name));
+                    claims.Add(new Claim(ClaimTypes.NameIdentifier, sessionUser.ID.ToString()));
+                    claims.Add(new Claim(ClaimTypes.UserData, sessionUser.School.ID.ToString()));
+                    claims.Add(new Claim(ClaimTypes.Role, (sessionUser.School.ID == -1) ? BvsdRoles.DistrictAdmin :
+                        (sessionUser.School.ID > 0) ? BvsdRoles.SchoolAdmin : BvsdRoles.NotAnAdmin));
+                }
                 // important to set the identity this way, otherwise IsAuthenticated will be false
-                // see: http://leastprivilege.com/2012/09/24/claimsidentity-isauthenticated-and-authenticationtype-in-net-4-5/
+                // see: ht tp://leastprivilege.com/2012/09/24/claimsidentity-isauthenticated-and-authenticationtype-in-net-4-5/
                 ClaimsIdentity identity = new ClaimsIdentity(claims, AuthenticationTypes.Basic);
 
                 principal = new ClaimsPrincipal(identity);
-            } catch {
+            } catch (Exception ex) {
+                //TODO: log ex
                 principal = null;
             }
 
             return principal;
         }
-
-
     }
 }

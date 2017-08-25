@@ -1,126 +1,67 @@
-﻿@{
+﻿@using Newtonsoft.Json
+@using BehaviorsOfConcern.Web.Models
+@model IncidentListViewModel
+@{
     ViewBag.Title = "List";
 }
 
 <div class="row content">
-    <div class="col-sm-10" style="margin-top:5px;">
-        @*<h4 class="text-center">Incident List</h4>*@
-        <table id="incidentList" class="table table-striped table-bordered" cellspacing="0" width="100%">
+    <div class="col-sm-10" style="margin-top: 5px;">
+        <table id="incidentList" class="display" cellspacing="0" width="100%">
             <thead>
                 <tr>
-                    <th class="text-center">ID</th>
-                    <th class="text-center">Incident Date</th>
-                    <th class="text-center">Students Involved</th>
+                    <th class="text-left" name="th-ID">ID</th>
+                    <th class="text-left">Incident Date</th>
+                    <th class="text-center">Student</th>
                     <th class="text-center">School</th>
-                    <th class="text-center">Behavior Category</th>
-                    <th class="text-center">Source</th>
-                    <th class="text-center">Status</th>
-                    <th class="text-center">Submission Date</th>
+                    <th class="text-left">Category</th>
+                    <th class="text-left">Source</th>
+                    <th class="text-left">Status</th>
+                    <th class="text-center">Submitted  </th>
                 </tr>
             </thead>
         </table>
-
+        
         <form class="form-inline">
-            <div class="form-group"><button type="submit" class="btn btn-primary">Open incident</button></div>
-            <div class="form-group"><button id="delMe_newIncident" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Start a new incident</button></div>
+            <div class="form-group"><button type="button" class="btn btn-primary" data-redirectUrl="@Url.Action("Edit", "Incident")" id="openIncidentCommand">Open incident</button></div>
+            <div class="form-group"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newIncidentModal">Start a new incident</button></div>
         </form>
 
-        <p id="output" />
+
+        <form class="form-horizontal" id="incidentReportForm" style="display: none; margin-top: 7px">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-xs-2"><h4><b>Incident</b> #<span id="incidentID"></span></h4></div>
+                    <div class="col-xs-5 text-left"><h4><b>Submitted By</b>&nbsp;&nbsp;<span id="submitter"></span></h4></div>
+                    <div class="col-xs-5 text-right"><h4><b>On</b>&nbsp;&nbsp;<span id="submittedOn"></span>&nbsp;&nbsp;</h4></div>
+                </div>
+                <div class="form-group">
+                    <label for="description" class="control-label col-sm-2">Description</label>
+                    <div class="col-sm-10 form-control-static"><span id="description"></span></div>
+                </div>
+                <div class="form-group">
+                    <label for="reportingSchool" class="control-label col-sm-2">Reporting School</label>
+                    <div class="col-sm-4 form-control-static"><span id="reportingSchool"></span></div>
+                    <label for="incidentDate" class="control-label col-sm-3">Date & Time of Incident</label>
+                    <div class="col-sm-2 form-control-static"><span id="incidentDate"></span></div>
+                </div>
+            </div>
+        </form>
     </div>
 
-    <div id="x_listFilters" class="col-sm-2 sidenav">@Html.Partial("IncidentFilters")</div>
+    <div class="col-sm-2 sidenav">@Html.Partial("IncidentFilters")</div>
 </div>
 
+<p id="debug" style="background-color:lightblue"></p>
 
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="exampleModalLabel">Start a New Incident
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                </h4>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="newIncident-reportingSchool" class="form-control-label">Reporting School</label>
-                        <input type="text" class="form-control" id="newIncident-reportingSchool">
-                    </div>
-                    <div class="form-group">
-                        <label for="newIncident-incidentDate" class="form-control-label">Date & Time of Incident</label>
-                        <div class='input-group date' id='datetimepicker1'>
-                            <input type='text' class="form-control" id="newIncident-incidentDate" value="Mar 31, 2017  9:47am" />
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="newIncident-description" class="form-control-label">Description</label>
-                        <textarea class="form-control" id="newIncident-description" rows="5"></textarea>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Create incident &amp; continue <span class="glyphicon glyphicon-share-alt"></span></button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-
-
+@Html.Partial("NewIncidentModal", Model)
 @section scripts{
     <script>
-        $.ajaxSetup({
-            headers: {
-                "Authorization": "Basic " + sessionStorage.authToken
-            }
-        });
-
-        //ht tps://datatables.net/examples/ajax/orthogonal-data.html
-        $(document).ready(function () {
-            $('#incidentList').DataTable({
-                "paging": true,
-                "ordering": true,
-                "info": true,
-                "serverSide": true,
-                "title": "JB List",
-
-                "ajax": {
-                    "url": "http://localhost:56743/api/incidents/search",
-                    "type": "POST"
-                },
-
-                "columns": [
-                    { data: "id" },
-                    { data: "incidentDate" },
-                    { data: "student" },
-                    { data: "school" },
-                    { data: "category" },
-                    { data: "source" },
-                    { data: "status" },
-                    { data: "incidentDate" }
-                ]
-
-            });
-        });
-
-
-        $(document).ready(function () {
-            $("#newIncident").click(function () {
-                $.post("http://localhost:56743/api/incidents?SpecificOther=xyz", { "SpecificLocation": "JBs loc", "ReportingSchool.ID": "9821", "SpecificOther": "JB other" })
-                  .done(function (data) {
-                      alert("Data Loaded: " + data);
-                  });
-            });
-        });
-</script>
+    var incidentCategoryLookups = @Html.Raw(JsonConvert.SerializeObject(Model.IncidentCategoryLookups.ToDictionary(luc => luc.Value.ToString(), luc => luc.Label)));
+    var sourceLookups = @Html.Raw(JsonConvert.SerializeObject(Model.SourceLookups.ToDictionary(luc => luc.Value.ToString(), luc => luc.Label)));
+    var statusLookups = @Html.Raw(JsonConvert.SerializeObject(Model.StatusLookups.ToDictionary(luc => luc.Value.ToString(), luc => luc.Label)));
+    var outcomeLookups = @Html.Raw(JsonConvert.SerializeObject(Model.OutcomeLookups.ToDictionary(luc => luc.Value.ToString(), luc => luc.Label)));
+    var recencyIntervalLookups = @Html.Raw(JsonConvert.SerializeObject(Model.RecencyIntervalLookups.ToDictionary(luc => luc.Value.ToString(), luc => luc.Label)));
+    </script>
+    @Scripts.Render("~/Scripts/boc-list.js")
 }

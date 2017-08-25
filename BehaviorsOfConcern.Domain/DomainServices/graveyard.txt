@@ -1,0 +1,42 @@
+            //DataTable tvpFilterStatus = FillTableValuedParameter(filterStatusCDs);
+            //DataTable tvpFilterCategory = FillTableValuedParameter(filterCategoryCDs);
+            //DataTable tvpFilterOutcome = FillTableValuedParameter(filterOutcomeCDs);
+            //int? filterReportingSchoolID = null;
+
+
+
+
+
+            using (SqlConnection conn = new SqlConnection(_connString)) {
+                conn.Open();
+                incidents = conn.Query<Incident, dynamic, Incident>("BVSD_ReadIncidentsByPage",
+                    PopulateAggregates, sqlParams, splitOn: "SubmitterID", commandType: CommandType.StoredProcedure);
+            }
+            //incidents = conn.Query<Incident, Person, Person, Student, School, School, Incident>  //nice, tidy syntax, but can't use it since we want to map the sproc column names to alternate property names
+                //(incident, submitter, reportingParty, concernedParty, school, correctedSchool) => {
+                //    incident.Submitter = submitter;
+                //    incident.ReportingParty = reportingParty;
+                //    //incident.ConcernedParty = concernedParty;
+                //    if (concernedParty != null) incident.ConcernedParty = new Student {
+                //        ID = concernedParty.ConcernedPartyID ?? 0,
+                //        StudentNumber = concernedParty.StudentNumber,
+                //        IdentityID = concernedParty.IdentityID ?? 0,
+                //        Name = concernedParty.ConcernedParty
+                //    };
+                //    incident.ReportingSchool = school;
+                //    incident.CorrectedReportingSchool = correctedSchool;
+                //    return incident;
+                //},
+                //new {
+                //    pageSkip,
+                //    pageTake,
+                //    filterIncidentDateLow,
+                //    filterIncidentDateHigh,
+                //    filterStatus = tvpFilterStatus,
+                //    filterCategory = tvpFilterCategory,
+                //    filterOutcome = tvpFilterOutcome,
+                //    filterReportingSchoolID
+                //},
+            //splitOn: "SubmitterID,ReportingParty,ConcernedPartyID,ReportingSchoolID,CorrectedReportingSchoolID",  //see note above
+                //commandType: CommandType.StoredProcedure);
+

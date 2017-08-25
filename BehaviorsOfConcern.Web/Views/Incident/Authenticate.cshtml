@@ -2,28 +2,32 @@
     ViewBag.Title = "Authenticate";
 }
 
-<h2 id="status">Authenticating ... </h2>
+<h2 id="status">Locating Authentication Service ... </h2>
 <p id="output" />
 
 @section scripts{
 <script>
-    var uri = '@ViewBag.AuthURI';
+    sessionStorage.setItem('bocUri', '@ViewBag.BoCApiUri');
+    var authUri = sessionStorage.getItem('bocUri') + 'auth/?externalToken=@ViewBag.ICToken';
+                  
 
     $(document).ready(function () {
-        $('#output').text(uri + '/@ViewBag.ICToken')
+        $('#status').text("Authenticating ... ");
+        $('#output').text(authUri);
 
-        sessionStorage.authToken = null;
+        sessionStorage.removeItem('authToken');
 
-        $.getJSON(uri + '/@ViewBag.ICToken')
+        $.getJSON(authUri)
          .done(function (data) {
              //$('#output').text(data["authToken"]);
 
              if (typeof (Storage) !== "undefined") {
-                 //$('#status').text("Access allowed");
-                 sessionStorage.authToken = data["authToken"];
+                 sessionStorage.setItem('authToken', data['authToken']);
+                 sessionStorage.setItem('userName', data['userName']);
+                 sessionStorage.setItem('userSchoolID', data['userSchoolID']);
                  window.location.assign("@Url.Action("List", "Incident")");
              } else {
-                 $('#status').text("Sorry, your browser does not support web storage...");
+                 $('#status').text("Sorry, your browser does not support web storage.  Access denied.");
              }
          })
          .fail(function (jqXHR, textStatus, err) {

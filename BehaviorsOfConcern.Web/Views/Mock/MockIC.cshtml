@@ -1,0 +1,62 @@
+﻿@{
+    Layout = null;
+    string apiURI = @"http://localhost:56743/api/";
+    //string apiURI = @"https://dwa.bvsd.org/BoCAPI/api/";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>mock IC</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row" style="background-color:#f26126; height:50px;">
+            <div class="col-xs-12 text-center">[IC campusHeader]</div>
+        </div>
+        <div class="row" style="background-color:#eee; height:30px;">
+            <div class="col-xs-12 text-center">[IC toolbar]</div>
+        </div>
+        <div class="row text-center">
+            <div class="col-xs-2" style="background-color:#92c83e; height:2000px;">
+                <br /><br />[IC sidebar]<br /><br /><br />
+                <a href="@Url.Action("Authenticate", "Incident", new { bocApiUri = @apiURI, userID="1237214", personID="1237214", calendarID="1275", campus = "" })" target="ICWorkspace">Authenticate as non-Admin</a><br /><br />
+
+                <a href="@Url.Action("Authenticate", "Incident", new { bocApiUri = @apiURI, userID="1855154", personID="247006",  calendarID="9876", campus="2ba152630dc240f8fada908e2498d398e018a19a8520cdedaf165d1c8d8c6f7f1116551d8afae07234f017ae3523f7bc6e85978f7a42c55b0f55184ce96bc12186e43dd17ff169a784ac686da0d75a45a5ceeee16c596c8e12e27f3371a05b2a9620f2a9db93b6926f24dfe52faeda9ad981c99584d1e4c7fa7f91a52b1a496bb60a967bab19ef58b37ff0340ba3a48db08915f3d5259339492836667ff1a9837d864a833ee7246e" })" target="ICWorkspace">Authenticate as EB</a><br /><br />
+                <a href="@Url.Action("Authenticate", "Incident", new { bocApiUri = @apiURI, campus = "2ba152630dc240f8fada908e2498d398e018a19a8520cdedaf165d1c8d8c6f7f1116551d8afae07234f017ae3523f7bc6e85978f7a42c55b0f55184ce96bc12186e43dd17ff169a784ac686da0d75a45a5ceeee16c596c8e12e27f3371a05b2a9620f2a9db93b6926f24dfe52faeda9ad981c99584d1e4c7fa7f91a52b1a496bb60a967bab19ef58b37ff0340ba3a48db08915f3d5259339492836667ff1a9837d864a833ee7246e" })" target="ICWorkspace">Authenticate as JB</a><br /><br />
+
+                <a href="@Url.Action("Authenticate", "Incident", new { bocApiUri = @apiURI, userID="1884175", personID="91662",   calendarID="1328", campus = (string)null})" target="ICWorkspace">Authenticate as Principal-A</a><br /><br />
+                <a href="@Url.Action("Authenticate", "Incident", new { bocApiUri = @apiURI, userID="1899697", personID="402371",  calendarID="1132", campus = ""          })" target="ICWorkspace">Authenticate as Principal-B</a><br /><br />
+                <a href="@Url.Action("Authenticate", "Incident", new { bocApiUri = @apiURI, userID="1867068", personID="222324",  calendarID="1491", campus = " "         })" target="ICWorkspace">Authenticate as Principal-C</a><br /><br />
+                <a href="@Url.Action("Authenticate", "Incident", new { bocApiUri = @apiURI, userID="1865629", personID="364383",  calendarID="1479"                       })" target="ICWorkspace">Authenticate as Principal-D</a><br /><br />
+                <a href="@Url.Action("Authenticate", "Incident", new { bocApiUri = @apiURI, userID="196765",  personID="98570",   calendarID="1281", campus = (string)null})" target="ICWorkspace">Authenticate as Principal-E</a><br /><br />
+                <a href="@Url.Action("Authenticate", "Incident", new { bocApiUri = @apiURI, userID="169329",  personID="98796",   calendarID="942",  campus = ""          })" target="ICWorkspace">Authenticate as Principal-F</a><br /><br />
+                <a href="@Url.Action("Authenticate", "Incident", new { bocApiUri = @apiURI, userID="166251",  personID="234669",  calendarID="1452", campus = (string)null})" target="ICWorkspace">Authenticate as Principal-G</a><br /><br />
+                <a href="@Url.Action("Authenticate", "Incident", new { bocApiUri = @apiURI, userID="7214",    personID="105129",  calendarID="1275"                       })" target="ICWorkspace">Authenticate as Principal-H</a><br /><br />
+
+                @*
+                <a href="@Url.Action("Authenticate", "Incident", new { bocApiUri = @apiURI, campus = "91789b56a8b348481c39acfbdec1f23586e43dd17ff169a7fe7e5027d07a5791"})" target="ICWorkspace">Authenticate as District Admin</a><br /><br />
+
+                <a href="@Url.Action("Authenticate", "Incident", new { bocApiUri = @apiURI, campus = "91789b56a8b348481c39acfbdec1f23586e43dd17ff169a7fe7e5027d07a579191789b56a8b348481c39acfbdec1f23586e43dd17ff169a7fe7e5027d07a579191789b56a8b348481c39acfbdec1f23586e43dd17ff169a7fe7e5027d07a579191789b56a8b348481c39acfbdec1f23586e43dd17ff169a7fe7e5027d07a5791abcde" })" target="ICWorkspace">Authenticate as JB</a><br /><br />
+                <a href="@Url.Action("Authenticate", "Incident", new { bocApiUri = @apiURI, campus = "2ba152630dc240f8fada908e2498d398e018a19a8520cdedaf165d1c8d8c6f7f1116551d8afae07234f017ae3523f7bc6e85978f7a42c55b0f55184ce96bc12186e43dd17ff169a784ac686da0d75a45a5ceeee16c596c8e12e27f3371a05b2a9620f2a9db93b6926f24dfe52faeda9ad981c99584d1e4c7fa7f91a52b1a496bb60a967bab19ef58b37ff0340ba3a48db08915f3d5259339492836667ff1a9837d864a833ee7246e" })" target="ICWorkspace">Authenticate as JB2</a><br /><br />
+
+                <a href="@Url.Action("Authenticate", "Incident", new { bocApiUri = @apiURI, campus = "86e43dd17ff169a79ed7f0f0d55e14e6f8209283b7abd4d4492362be0432ead25c4d1e977b9c374df07fbc9e43d2521e"})" target="ICWorkspace">Authenticate as Pricipal/AP</a><br /><br />
+                <a href="@Url.Action("Authenticate", "Incident", new { bocApiUri = @apiURI, campus = "8fb2abe4286f90658f983f50285adbff41c53c90a1808b01a10f688ae015a7d33e3131d93aa449da0cf41dea825626745c9c2f1defc1be2502448eb3f8002b9d"})" target="ICWorkspace">Authenticate as IC user (non-Admin)</a><br /><br />
+                <a href="@Url.Action("Authenticate", "Incident", new { bocApiUri = @apiURI, campus = "91789b56a8b34848f15fb39b5fce203c"})" target="ICWorkspace">Authenticate as non-IC user</a><br /><br />
+                *@
+            </div>
+            <div class="col-xs-10"> 
+                <iframe name="ICWorkspace" src="" height="2000px" width="100%" scrolling="no" style="border:0;"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+      //sessionStorage.setItem('apiKey', 'simpleApiKey');
+      //sessionStorage.setItem('apiKey', '1lonGstrinG,noT2easY2gues5-buTals0noTrequireD2BencrypteDsincE1sucHstrinGiSjusTaSgooDaSanotheR');
+        sessionStorage.setItem('apiKey', '1lonGstrinG%2CnoT2easY2gues5-buTals0noTrequireD2BencrypteDsincE1sucHstrinGiSjusTaSgooDaSanotheR');
+        sessionStorage.setItem('mockApiUri', '@apiURI');
+    </script>
+</body>
+</html>

@@ -37,3 +37,31 @@ div#listFilters {
 .xnavbar-inverse {
     background-color: lightblue;
 }
+
+
+
+
+.boc-addGlyph a:after {
+    font-family:'Glyphicons Halflings';
+    /*content:"\e114";*/
+    content:"\2212";
+    float: right;
+    /*color: grey;*/
+}
+.boc-addGlyph a.collapsed:after {
+    content:"\2b";
+}
+
+
+
+#newIncidentSpinner, #assignStudentSpinner {
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    width: 40px;
+    height: 40px;
+    margin-left: -32px;
+    margin-top: -32px;
+    border: 0;
+    z-index: 999;
+}

@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Http.Filters;
 
 namespace BehaviorsOfConcern.Api.Infrastructure {
+    //TODO: cite Microsoft ref. & author here
+
     public static class HttpAuthenticationChallengeContextExtensions {
         public static void ChallengeWith(this HttpAuthenticationChallengeContext context, string scheme) {
             ChallengeWith(context, new AuthenticationHeaderValue(scheme));

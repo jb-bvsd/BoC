@@ -30,28 +30,54 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DomainServices\Abstract\ILookupCodeCache.cs" />
+    <Compile Include="DomainServices\LookupCode.cs" />
     <Compile Include="Entities\Comment.cs" />
     <Compile Include="Entities\Incident.cs" />
     <Compile Include="Entities\IncidentSummary.cs" />
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Entities\School.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RepoServices\Abstract\IBoCAuthorizationService.cs" />
-    <Compile Include="RepoServices\Abstract\IIncidentRepository.cs" />
-    <Compile Include="RepoServices\Abstract\ISchoolRepository.cs" />
-    <Compile Include="RepoServices\Abstract\RepositoryBase.cs" />
-    <Compile Include="RepoServices\BoCAuthorizationService.cs" />
-    <Compile Include="RepoServices\SchoolRepository.cs" />
+    <Compile Include="DomainServices\Abstract\IBoCAuthorizationService.cs" />
+    <Compile Include="DomainServices\Abstract\IIncidentRepository.cs" />
+    <Compile Include="DomainServices\Abstract\ISchoolRepository.cs" />
+    <Compile Include="DomainServices\Abstract\RepositoryBase.cs" />
+    <Compile Include="DomainServices\BoCAuthorizationService.cs" />
+    <Compile Include="DomainServices\IncidentRepository.cs" />
+    <Compile Include="DomainServices\LookupCodeCache.cs" />
+    <Compile Include="DomainServices\SchoolRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BVSDSecurity.Service\BVSDSecurity.Service.csproj">
+      <Project>{2C7CD8CF-4D50-4329-BB8A-CA4ADE82EC2F}</Project>
+      <Name>BVSDSecurity.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,44 @@
+﻿@model BehaviorsOfConcern.Web.Models.IncidentListViewModel
+
+<div class="modal fade" id="newIncidentModal" tabindex="-1" role="dialog" aria-labelledby="newIncidentModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="newIncidentModalLabel">
+                    Start a New Incident
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <img src="~/Content/spinner.gif" id="newIncidentSpinner" style="display: none;" />
+                <form id="newIncidentForm">
+                    <div class="form-group">
+                        <label for="newIncident-reportingSchoolID" class="form-control-label">Reporting School</label>
+                        @Html.DropDownList("newIncident-reportingSchoolID", Model.SchoolList.Select(s => new SelectListItem() { Value = s.ID.ToString(), Text = s.Name }), "(Please choose a school)", new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label for="newIncident-incidentDate" class="form-control-label">Date & Time of Incident</label>
+                        <div class='input-group date'>
+                            <input type='text' class="form-control" id="newIncident-incidentDate" name="newIncident-incidentDate" placeholder="(e.g. Mar 31, 2017 9:47am   or   2017-6-22)" />
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="newIncident-description" class="form-control-label">Description</label>
+                        <textarea class="form-control" id="newIncident-description" name="newIncident-description" rows="5"></textarea>
+                    </div>
+                    <div class="alert alert-warning" id="newIncident-validationWarning" style="margin-top: 4px;">
+                        <strong>Validation problems:</strong><br />
+                        <em id="newIncident-validationWarningText"></em>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" data-redirectUrl="@Url.Action("Edit", "Incident")" id="createIncidentCommand">Create incident &amp; continue <span class="glyphicon glyphicon-share-alt"></span></button>
+            </div>
+        </div>
+    </div>
+</div>

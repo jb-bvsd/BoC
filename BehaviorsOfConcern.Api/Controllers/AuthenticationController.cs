@@ -6,51 +6,38 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using BehaviorsOfConcern.Domain.RepoServices.Abstract;
-using ICCipher.Service;
+using BehaviorsOfConcern.Domain.DomainServices.Abstract;
+using BehaviorsOfConcern.Domain.Entities;
+using BvsdSecurity.Service;
 
 namespace BehaviorsOfConcern.Api.Controllers {
     public class AuthenticationController : ApiController {
-        private ICipher _icCipherService;
         private IBoCAuthorizationService _bocAuthService;
 
 
-        public AuthenticationController(ICipher icCipherService, IBoCAuthorizationService bocAuthService) {
-            this._icCipherService = icCipherService;
+        public AuthenticationController(IBoCAuthorizationService bocAuthService) {
             this._bocAuthService = bocAuthService;
         }
 
 
-        [Route("api/auth/{icToken}")]
-        [EnableCors(origins:"*", headers:"*", methods:"*")]
+        [Route("api/auth")]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         [HttpGet]
-        public IHttpActionResult Authenticate(string icToken) {
-            string bocToken;
+        public IHttpActionResult Authenticate(string externalToken) {
+            string bocToken; BVSDAdmin user = null;
             try {
-                int personID = ExtractPersonID(icToken);
-                int? schoolID = _bocAuthService.ReadBoCAdminID(personID);
-                bocToken = CreateToken(personID, schoolID);
+                //user = new BVSDAdmin { ID = 247006, Name = "EB A. Tester", School = new School { ID = -1 } };
+                user = _bocAuthService.ExtractExternalUser(externalToken);
+                bocToken = _bocAuthService.BuildToken(user);
             } catch (Exception ex) {
+                //TODO: log exception
                 bocToken = null;
             }
 
             if (bocToken == null)
                 return StatusCode(HttpStatusCode.Unauthorized);
             else
-                return Ok(new { authToken = bocToken });
+                return Ok(new { authToken = bocToken, userName = user.Name, userSchoolID = user.School?.ID });
         }
-
-        private int ExtractPersonID(string icToken) {
-            return int.Parse(HttpUtility.ParseQueryString(_icCipherService.Decrypt_ECB(
-                HttpUtility.UrlDecode(icToken)))["personID"]);
-        }
-
-        private string CreateToken(int personID, int? schoolID) {
-            if (schoolID == null) return null;
-            else return //TODO: Convert.ToBase64String()
-                    HttpUtility.HtmlEncode(_icCipherService.Encrypt_ECB(
-                string.Format("personID={0}&schoolID={1}", personID, schoolID)));
-        }
-
     }
 }

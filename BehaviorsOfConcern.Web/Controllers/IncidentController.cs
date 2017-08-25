@@ -3,64 +3,69 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using BehaviorsOfConcern.Domain.RepoServices;
-using BehaviorsOfConcern.Domain.RepoServices.Abstract;
+using BehaviorsOfConcern.Domain.DomainServices;
+using BehaviorsOfConcern.Domain.DomainServices.Abstract;
 using BehaviorsOfConcern.Web.Models;
 
 namespace BehaviorsOfConcern.Web.Controllers {
+    [OutputCacheAttribute(VaryByParam = "*", Duration = 0, NoStore = true)]
     public class IncidentController : Controller {
-        private const string _submitter = "principalX";
         private ISchoolRepository _schoolRepository;
+        private ILookupCodeCache _lookupCodeCache;
+        private string _clearAuthenticationPrefix;
 
-        public IncidentController(ISchoolRepository schoolRepository = null) {
+        public IncidentController(ISchoolRepository schoolRepository, ILookupCodeCache lookupCodeCache, string clearAuthenticationPrefix) {
             this._schoolRepository = schoolRepository;
-            this._schoolRepository = new SchoolRepository("server=bvsd.infinitecampus.org,7771;database=boulder_valley_sandbox;Uid=Reporting;Pwd=R3p0rt!nG;");
+            this._lookupCodeCache = lookupCodeCache;
+            this._clearAuthenticationPrefix = clearAuthenticationPrefix;
         }
-
 
 
         public ActionResult List() {
             IncidentListViewModel vm = new IncidentListViewModel();
-            vm.SchoolList = _schoolRepository.ReadSchools();
+            vm.RecencyIntervalLookups = _lookupCodeCache.CategoryDictionary[LookupCategories.RecencyInterval];
+            vm.IncidentCategoryLookups = _lookupCodeCache.CategoryDictionary[LookupCategories.IncidentCategory];
+            vm.SourceLookups = _lookupCodeCache.CategoryDictionary[LookupCategories.Source];
+            vm.StatusLookups = _lookupCodeCache.CategoryDictionary[LookupCategories.Status];
+            vm.OutcomeLookups = _lookupCodeCache.CategoryDictionary[LookupCategories.Outcome];
+            vm.SchoolList = _schoolRepository.ReadSchools().OrderBy(s => s.Name);
             return View(vm);
         }
 
+
         public ActionResult Edit() {
-            return View("Edit_revC");
+            IncidentListViewModel vm = new IncidentListViewModel();
+            vm.IncidentCategoryLookups = _lookupCodeCache.CategoryDictionary[LookupCategories.IncidentCategory];
+            vm.SourceLookups = _lookupCodeCache.CategoryDictionary[LookupCategories.Source];
+            vm.StatusLookups = _lookupCodeCache.CategoryDictionary[LookupCategories.Status];
+            vm.OutcomeLookups = _lookupCodeCache.CategoryDictionary[LookupCategories.Outcome];
+            vm.SchoolList = _schoolRepository.ReadSchools().OrderBy(s => s.Name);
+            return View(vm);
         }
 
-        //identity info from IC comes encrypted inside the 'campus' query string parameter
-        public ActionResult Authenticate(string campus, string authURI) {
-            //ViewBag.ServiceURI = @"http://localhost:52549/api/incidents/3";
-            //ViewBag.ServiceURI = @"http://localhost:52549/api/auth";
-            //ViewBag.ServiceURI = @"http://localhost:56743/api/auth";  //TODO: get uri from config file? or from url query string?
-            //pass campus token on to View, display status msg, and make async REST call there
-            ViewBag.ICToken = campus;
-            ViewBag.AuthURI = authURI;
+
+        public ActionResult About() {
             return View();
         }
 
-        public JsonResult sampleData(string _) {
-            string sample = OrthogonalSample(HttpContext.Server.MapPath(@"..\_sampleData\orthogonal_working.txt"))
-                .Replace("[draw_value]", HttpContext.Request.Form["draw"]);
 
-            var jss = new System.Web.Script.Serialization.JavaScriptSerializer();
-            var obj = jss.Deserialize<object>(sample);
-
-            var payload = (Dictionary<string, object>)obj;
-            payload["data"] = ((object[])payload["data"])
-                .Skip(int.Parse(HttpContext.Request.Form["start"]))
-                .Take(int.Parse(HttpContext.Request.Form["length"]))
-                .ToArray();
-
-            return Json(obj);
+        public ActionResult UnknownIncident() {
+            return View();
         }
 
-        private string OrthogonalSample(string sampleFilePath) {
-            return System.IO.File
-                .ReadAllText(sampleFilePath)
-                .Replace("\r", "")
-                .Replace("\n", "");
+
+        [Route("authenticate")]
+        //identity info from IC comes encrypted inside the 'campus' query string parameter.
+        //bypassCampus (coupled with proper web.config setting) overrides any campus argument - allows for easy troubleshooting:
+        //  - web.config must have a non-null appSettings["clearAuthenticationPrefix"] entry.
+        //  - it must match an identical setting in the webAPI service.
+        //  - the http request must have non-null query string entries for personID and userID.
+        //  - an http request query string entry for calendarID should be present for school admins.
+        public ActionResult Authenticate(string bocApiUri, string campus, AuthOverrideViewModel bypassCampus) {
+            //pass campus token on to View, display status msg, and make async REST call there
+            ViewBag.ICToken = (bypassCampus == null) ? campus : bypassCampus.BuildToken(_clearAuthenticationPrefix) ?? campus;
+            ViewBag.BoCApiUri = bocApiUri;
+            return View();
         }
     }
 }

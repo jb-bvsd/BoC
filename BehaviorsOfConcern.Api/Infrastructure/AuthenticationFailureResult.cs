@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace BehaviorsOfConcern.Api.Infrastructure {
+    //TODO: cite Microsoft ref. & author here
+
     public class AuthenticationFailureResult : IHttpActionResult {
         public AuthenticationFailureResult(string reasonPhrase, HttpRequestMessage request) {
             ReasonPhrase = reasonPhrase;

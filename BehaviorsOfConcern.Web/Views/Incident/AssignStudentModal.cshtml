@@ -1,0 +1,48 @@
+﻿@model BehaviorsOfConcern.Web.Models.IncidentListViewModel
+
+<div class="modal fade" id="assignStudentModal" tabindex="-1" role="dialog" aria-labelledby="assignStudentModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="assignStudentModalLabel">
+                    Assign a Student to Incident
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <img src="~/Content/spinner.gif" id="assignStudentSpinner" style="display: none;" />
+                <form id="assignStudentForm">
+                    <div class="form-group">
+                        <label for="assignStudent-searchSchool" class="form-control-label">School To Search</label>
+                        <div class="form-control-static"><span id="assignStudent-searchSchool"></span></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="assignStudent-searchTerm" class="form-control-label">Search For</label>
+                        <div class='input-group'>
+                            <input type='text' class="form-control" id="assignStudent-searchTerm" name="assignStudent-searchTerm" placeholder="e.g. : lastName  or  (G 10)" />
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-primary" id="searchStudentCommand"><i class="glyphicon glyphicon-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="assignStudent-matches" class="form-control-label">Matching Students</label>
+                        <select class="form-control" id="assignStudent-matches" name="assignStudent-matches" size="10"></select>
+                        <div class="alert alert-warning" id="assignStudent-matchCountWarningExcessive" style="margin-top: 4px;">
+                            <em>Displaying first 100 matches, consider narrowing your search</em>
+                        </div>
+                        <div class="alert alert-info" id="assignStudent-matchCountWarningNone" style="margin-top: 4px;">
+                            <em>No students match your search</em>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="assignStudentCancelCommand">Cancel </button>
+                <button type="button" class="btn btn-primary" id="assignStudentCommand">Assign student to incident <span class="glyphicon glyphicon-share-alt"></span></button>
+            </div>
+        </div>
+    </div>
+</div>

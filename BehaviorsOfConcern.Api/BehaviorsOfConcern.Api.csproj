@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -111,13 +112,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\IncidentsController.cs" />
+    <Compile Include="Controllers\SchoolController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -127,10 +131,12 @@
     <Compile Include="Infrastructure\HttpAuthenticationChallengeContextExtensions.cs" />
     <Compile Include="Infrastructure\IdentityBasicAuthenticationAttribute.cs" />
     <Compile Include="Models\SearchRequest.cs" />
+    <Compile Include="Models\SearchResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\pub1.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -142,9 +148,9 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ICCipher.Service\ICCipher.Service.csproj">
-      <Project>{4CEF1135-E069-46A7-A3D2-0B8A4A031CD8}</Project>
-      <Name>ICCipher.Service</Name>
+    <ProjectReference Include="..\BVSDSecurity.Service\BVSDSecurity.Service.csproj">
+      <Project>{2c7cd8cf-4d50-4329-bb8a-ca4ade82ec2f}</Project>
+      <Name>BVSDSecurity.Service</Name>
     </ProjectReference>
     <ProjectReference Include="..\BehaviorsOfConcern.Domain\BehaviorsOfConcern.Domain.csproj">
       <Project>{758AFC2E-D0AD-4BD5-AEAE-14365CFCF9B8}</Project>

@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+<div class="row content">
+    <br />
+    <p>view source to see example of API call to create new incident</p>
+    <p>using key:  <span id="apiKey"></span>&nbsp;&nbsp;&nbsp;&nbsp;at: <span id="apiUri"></span></p>
+    <br />
+    School list: <select id="bvsdSchools" />
+    <br />
+    <p id="output" style="background-color:lightblue"></p>
+</div>
+
+@section scripts{
+<script>
+    var apiBaseUri = sessionStorage.mockApiUri;
+
+    $(document).ready(function () {
+        //$.ajaxSetup({
+        //    headers: {
+        //        "Authorization": "Basic " + sessionStorage.apiKey
+        //    }
+        //});
+
+        $('#apiKey').text(sessionStorage.apiKey);
+        $('#apiUri').text(apiBaseUri);
+
+        var params = buildSampleParams();
+        //uncomment line below to make new-incident server call:
+        //pushIncident(params);
+
+        pullSchoolList2();
+    });
+
+
+    function pushIncident(incidentParams) {
+        //$("#newIncidentSpinner").show();
+        $.ajax({
+            url: apiBaseUri + 'incidents',
+            method: 'POST',
+            headers: { "Authorization": "Basic " + sessionStorage.apiKey },
+            data: incidentParams
+        })
+        .done(function (data) {
+            //$("#newIncidentSpinner").hide();
+            $('#output').text(data);
+        })
+        .fail(function (jqxhr, textStatus, error) {
+            //$("#newIncidentSpinner").hide();
+            //$('#output').html(jqxhr.responseJSON.Message.replace(/\n/g, "<br/>"));
+            console.log(jqxhr);
+            $('#output').html(jqxhr.statusText);
+        });
+    }
+
+
+    function buildSampleParams() {
+        var newIncident = {};
+        newIncident["ReportingSchool.ID"] = "26";
+        newIncident["IncidentDate"] = "2017-8-18 13:14";
+        newIncident["Submitter.Name"] = "Pufferkite, Herbert Q.";
+        newIncident["Submitter.ID"] = "9876";
+        newIncident["Description"] = "U.S. Treasury Secretary Steven Mnuchin’s wife, Louise Linton, boasted of flying on a government plane with her husband to Kentucky on Monday and then named the numerous fashion brands she wore on the trip in an unusual social media post that only became more bizarre minutes later.\n\nWhen someone posted a comment on Linton's Instagram picture that criticized the way Linton touted the trip, the treasury secretary's wife swung back hard, mentioning the extreme wealth she and her husband control.\n\n''Did you think this was a personal trip?!'' Linton wrote on her Instagram page, responding to the person who had written ''glad we could pay for your little getaway.''\n\nLinton continued in her response to the critic: ''Adorable! Do you think the US govt paid for our honeymoon or personal travel?! Lololol. Have you given more to the economy than me and my husband? Either as an individual earner in taxes OR in self sacrifice to your country? I’m pretty sure we paid more taxes toward our day ‘trip’ than you did. Pretty sure the amount we sacrifice per year is a lot more than you’d be willing to sacrifice if the choice was yours.''"
+
+        return $.param(newIncident);
+    }
+
+
+
+    function pullSchoolList() {
+        $.getJSON(apiBaseUri + 'schools', null, function (data) {
+            var options = '';
+            data.forEach(function (item, index, arr) {
+                options += '<option value="' + item.ID + '">' + item.Name + '</option>';
+            });
+            $('#bvsdSchools').html(options);
+        })
+        .fail(function (jqxhr, textStatus, error) {
+            //
+        });
+    }
+
+
+    function pullSchoolList2() {
+        $.ajax({
+            url: apiBaseUri + 'schools',
+            method: 'GET',
+            headers: {"Authorization": "Basic " + sessionStorage.apiKey}
+        })
+        .done(function (data) {
+            var options = '';
+            data.forEach(function (item, index, arr) {
+                options += '<option value="' + item.ID + '">' + item.Name + '</option>';
+            });
+            $('#bvsdSchools').html(options);
+        });
+    }
+
+
+</script>
+}

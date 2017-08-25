@@ -11,6 +11,8 @@ using System.Web;
 using System.Web.Http.Filters;
 
 namespace BehaviorsOfConcern.Api.Infrastructure {
+    //TODO: cite Microsoft ref. & author here
+
     public abstract class BasicAuthenticationAttribute : Attribute, IAuthenticationFilter {
         public string Realm { get; set; }
 
